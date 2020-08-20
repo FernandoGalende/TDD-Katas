@@ -11,7 +11,7 @@ const doEncrypt = (arr) => {
 
   arr.forEach((item, idx) => {
     isPair(idx) ? odds = [...odds, item] : evens = [...evens, item]
-  },[])
+  })
   
   return [...evens, ...odds]
 }
