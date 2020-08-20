@@ -1,8 +1,10 @@
-const getArray = (str) => str.split('')
+const strToArray = (str) => str.split('')
 
 const isPair = (idx) => idx % 2 === 0
 
 const arrToStr = (arr) => arr.join('')
+
+const getArrayof = (length) => [...Array(length).keys()]
 
 const doEncrypt = (arr) => {
   let odds = []
@@ -14,6 +16,8 @@ const doEncrypt = (arr) => {
   
   return [...evens, ...odds]
 }
+
+const getIneger = (value) => Math.max(0, value)
 
 const doDencrypt = (arr) => {
   let odds = arr.slice(0,arr.length/2)
@@ -33,31 +37,28 @@ const doDencrypt = (arr) => {
   return [...solution]
 }
 
-const encrypt = (text, n) => {
-  if(n <= 0 || !text) return text
-  let cont = 0  
-  let arr = getArray(text)
-  
-  while(cont < n){
-    cont++
-    arr = doEncrypt(arr)
-  }
+
+
+const loopEncription = (text, times, cb) => {
+  let arr = strToArray(text)
+
+  getArrayof(getIneger(times)).forEach(() => {
+    arr = cb(arr)
+  })
 
   return arrToStr(arr)
 }
 
-const decrypt = (text, n) => {
-  if(n <= 0 || !text) return text
-  
-  let cont = 0  
-  let arr = getArray(text)
-  
-  while(cont < n){
-    cont++
-    arr = doDencrypt(arr)
-  }
+const encrypt = (text, n) => {
+  if(!text) return text
 
-  return arrToStr(arr)
+  return loopEncription(text, n, doEncrypt)
+}
+
+const decrypt = (text, n) => {
+  if(!text) return text  
+
+  return loopEncription(text, n, doDencrypt)
 }
 
 module.exports = {
