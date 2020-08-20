@@ -1,9 +1,11 @@
-const arrToStr = (arr) => arr.join('')
-const getArrayof = (length) => [...Array(length).keys()]
-const getInteger = (value) => Math.max(0, value)
-const isPair = (idx) => idx % 2 === 0
-const pipe = (value) => (...fns) => fns.reduce((acc, fn)=> fn(acc),value)
-const strToArray = (str) => str.split('')
+const {
+  arrToStr,
+  getArrayof,
+  getInteger,
+  isPair,
+  pipe,
+  strToArray
+} = require('../utils')
 
 const doEncrypt = (arr) => {
   let odds = []
