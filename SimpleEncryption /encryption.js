@@ -6,6 +6,8 @@ const arrToStr = (arr) => arr.join('')
 
 const getArrayof = (length) => [...Array(length).keys()]
 
+const getInteger = (value) => Math.max(0, value)
+
 const doEncrypt = (arr) => {
   let odds = []
   let evens = []
@@ -16,8 +18,6 @@ const doEncrypt = (arr) => {
   
   return [...evens, ...odds]
 }
-
-const getIneger = (value) => Math.max(0, value)
 
 const doDencrypt = (arr) => {
   let odds = arr.slice(0,arr.length/2)
@@ -40,7 +40,7 @@ const doDencrypt = (arr) => {
 const loopEncription = (text, times, cb) => {
   let arr = strToArray(text)
 
-  getArrayof(getIneger(times)).forEach(() => {
+  getArrayof(getInteger(times)).forEach(() => {
     arr = cb(arr)
   })
 
