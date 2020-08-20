@@ -48,16 +48,16 @@ const loopEncription = (times, cb) => (text) =>  {
   return arr
 }
 
-const encrypt = (text, n) => {
+const encrypt = (text, times) => {
   if(!text) return text  
 
-  return pipe(text)(strToArray, loopEncription(n, doEncrypt), arrToStr)
+  return pipe(text)(strToArray, loopEncription(times, doEncrypt), arrToStr)
 }
 
-const decrypt = (text, n) => {
+const decrypt = (text, times) => {
   if(!text) return text   
 
-  return pipe(text)(strToArray, loopEncription(n, doDencrypt), arrToStr)
+  return pipe(text)(strToArray, loopEncription(times, doDencrypt), arrToStr)
 }
 
 module.exports = {
