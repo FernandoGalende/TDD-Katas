@@ -37,8 +37,6 @@ const doDencrypt = (arr) => {
   return [...solution]
 }
 
-
-
 const loopEncription = (text, times, cb) => {
   let arr = strToArray(text)
 
